@@ -4,11 +4,9 @@ var util = require("util");
 
 var server = http.createServer(function (req, res) {
   res.writeHead(200, { "Content-Type": "text/plain" })
-  res.write("Running " + process.title + " " + process.version + 
-          " on " + os.type() +
-          " release " + os.release() +
-          " at " + os.hostname() + "\n\n");
-  res.write("Process: " + util.inspect(process));
+  res.write("Running node " + process.version + 
+          " on " + os.type() + " " + os.release() +
+          " at " + os.hostname() + "\n");
   res.end();
 });
 
