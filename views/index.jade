@@ -1,3 +1,17 @@
 h1= title
-p Welcome to #{title}
-p This is a little test of Express on Node.
+p
+ | Welcome to 
+ em= title
+p 
+ | This is a little test of 
+ a(href='http://expressjs.com/') Express
+ |  on 
+ a(href='http://nodejs.org/') Node
+ | , using 
+ a(href='http://jade-lang.com/') Jade
+ | and
+ a(href='http://lesscss.org/') Less
+ | .
+
+// This comment shows up on the page, but the following line doesn't.
+//- This line doesn't show up on the page.
