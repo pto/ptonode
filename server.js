@@ -38,6 +38,6 @@ app.get('/', function(req, res){
 // Only listen on $ node app.js
 
 if (!module.parent) {
-  app.listen(3000);
+  app.listen(process.env.PORT || 8001);
   console.log("Express server listening on port %d", app.address().port);
 }
