@@ -6,7 +6,7 @@ html
     script(src='/socket.io/socket.io.js')
     script
       window.onload = function() {
-        window.socket = new io.Socket('localhost');
+        window.socket = new io.Socket('pto.no.de');
         socket.connect();
         socket.on('message', function(message) {
           alert('Received message: ' + message);
