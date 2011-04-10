@@ -3,7 +3,8 @@
  * Module dependencies.
  */
 
-var express = require('express');
+var express = require('express'),
+    io = require('socket.io');
 
 var app = module.exports = express.createServer();
 
@@ -11,7 +12,7 @@ var app = module.exports = express.createServer();
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'ejs');
+  app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -30,13 +31,25 @@ app.configure('production', function(){
 
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'Express'
+    title: 'Express',
+    env: process.env
   });
 });
+
+// Socket.IO
+
+console.log('About to start Socket.IO');
+
+var socket = io.listen(app);
+socket.on('connection', function(client) {
+  client.on('message', function(data) {
+    client.send('Got your message: ' + data);
+  });
+}); 
 
 // Only listen on $ node app.js
 
 if (!module.parent) {
-  app.listen(process.env.PORT || 80);
+  app.listen(process.env.PORT || 8000);
   console.log("Express server listening on port %d", app.address().port);
 }

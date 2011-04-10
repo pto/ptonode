@@ -1,0 +1,20 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/socket.io/socket.io.js')
+    script
+      window.onload = function() {
+        window.socket = new io.Socket('localhost');
+        socket.connect();
+        socket.on('message', function(message) {
+          alert('Received message: ' + message);
+        });
+      };
+
+      function send_message() {
+        socket.send('Hello from the client!');
+      };
+
+  body!= body
