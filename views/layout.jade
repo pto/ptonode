@@ -5,16 +5,20 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='/socket.io/socket.io.js')
     script
-      window.onload = function() {
-        window.socket = new io.Socket('pto.no.de');
+      var send_message = (function() {
+        var socket = new io.Socket('localhost');
         socket.connect();
         socket.on('message', function(message) {
-          alert('Received message: ' + message);
+          alert('Received message "' + message + '" via ' +
+            socket.transport.type);
         });
-      };
 
-      function send_message() {
-        socket.send('Hello from the client!');
-      };
+        function send_message() {
+          if (!socket.connected) socket.connect();
+          socket.send('Hello from the client!');
+        }
+
+        return send_message;
+      })();
 
   body!= body
