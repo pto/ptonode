@@ -15,8 +15,8 @@ html
           $('#messages').append('<div>Setting callback...</div>');
           socket.on('message', function(message) {
             $('#messages').append('<div>Delivering message...</div>');
-            alert('Received message "' + message + '" via ' +
-              socket.transport.type);
+            $('#messages').append('<div>Received message "' + message +
+              '" via ' + socket.transport.type + '</div>');
             $('#messages').append('<div>Message delivered</div>');
           });
           $('#messages').append('<div>Setup complete</div>');
