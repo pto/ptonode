@@ -43,7 +43,7 @@ server.on('request', function(request, response) {
     });
   }
   else {
-    response.writeHead(200, {'Content-Type', 'text/event-stream'});
+    response.writeHead(200, {'Content-Type': 'text/event-stream'});
     response.write('data: Connected\n\n');
     request.connection.on('end', function() {
       clients.splice(clients.indexOf(response), 1);
