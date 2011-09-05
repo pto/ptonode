@@ -1,6 +1,6 @@
 var http = require('http');
 var clientui = require('fs').readFileSync('chatclient.html');
-var demo = require('js').readFileSync('demo.html');
+var demo = require('fs').readFileSync('demo.html');
 
 var clients = [];
 
