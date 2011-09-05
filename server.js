@@ -1,5 +1,6 @@
 var http = require('http');
 var clientui = require('fs').readFileSync('chatclient.html');
+var demo = require('js').readFileSync('demo.html');
 
 var clients = [];
 
@@ -17,6 +18,11 @@ server.on('request', function(request, response) {
   if (url.pathname === '/') {
     response.writeHead(200, {'Content-Type': 'text/html'});
     response.end(clientui);
+    return;
+  }
+  else if (url.pathname === '/demo') {
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    response.end(demo);
     return;
   }
   else if (url.pathname !== '/chat') {
