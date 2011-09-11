@@ -1,8 +1,9 @@
 {
-  "name": "pto.no.de",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {}
+    "name": "node-demo"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.4.6"
+    , "ejs": ">= 0.0.1"
+  }
 }
