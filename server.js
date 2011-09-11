@@ -59,4 +59,4 @@ server.on('request', function(request, response) {
   }
 });
 
-server.listen(process.env.PORT || 8000);
+server.listen(process.env.PORT || process.env.C9_PORT || 8000);
