@@ -1,9 +1,9 @@
 {
-    "name": "node-demo"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.4.6"
-    , "ejs": ">= 0.0.1"
+  "name": "node-demo",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "2.4.6",
+    "ejs": ">= 0.0.1"
   }
 }
