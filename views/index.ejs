@@ -1,3 +1,23 @@
 <h1><%= title %></h1>
-<p>Welcome to <%= title %>. We are running Node version <%= version %>.</p>
-<p>This version has been updated with the new <i>ptonode</i> name.</p>
+<p>Welcome. Here is what we're running:</p>
+<pre><%= versions %></pre>
+<p id="target">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec
+  risus a magna placerat vulputate. Praesent non ligula est. Proin sit amet 
+  purus diam, suscipit aliquet neque. Donec a lorem ultrices tellus ultrices 
+  aliquet non sed quam. Donec nulla dui, scelerisque quis interdum in, rhoncus 
+  et arcu. Nam scelerisque diam nec quam volutpat quis elementum velit pretium.
+  Donec cursus, mauris eget eleifend tempus, risus nisl tempor lacus, hendrerit
+  rutrum nisl nisi at arcu. Nam at ante dolor. Maecenas sagittis tincidunt 
+  placerat.
+</p>
+<button id="toggle">Toggle</button>
+<script>
+  jQuery(function() {
+    $('#toggle').click(function () {
+      $('#target').animate({
+        height: 'toggle'
+      });
+    });
+  });
+</script>

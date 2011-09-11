@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var util = require('util');
 
 var app = module.exports = express.createServer();
 
@@ -31,7 +32,7 @@ app.configure('production', function(){
 app.get('/', function(req, res){
   res.render('index', {
     title: 'Node Demo',
-    version: process.versions.node
+    versions: util.inspect(process.versions)
   });
 });
 
