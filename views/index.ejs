@@ -1,6 +1,15 @@
 <h1><%= title %></h1>
 <p>Welcome. We’re running Node version <%= versions.node %>.</p>
 <button id='getJSON'>Get JSON</button>
+<button id='inspect'>Inspect</button>
 <hr>
 <div id="results"></div>
 <script src="/javascript/getJSON.js"></script>
+<script>
+  $('#inspect').click(function() {
+    $('#results').append('<pre>' +
+        inspect({ first:1, second:'hi', third: new Date(), fourth: /hi/,
+        colorized: true, nothing: null, notThere: undefined,
+        long: 'This is a long value' }) + '</pre>');
+  });
+</script>
