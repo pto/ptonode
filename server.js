@@ -32,7 +32,7 @@ app.configure('production', function(){
 app.get('/', function(req, res){
   res.render('index', {
     title: 'Node Demo',
-    versions: util.inspect(process.versions)
+    versions: process.versions
   });
 });
 

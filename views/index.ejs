@@ -1,15 +1,6 @@
 <h1><%= title %></h1>
-<p>Welcome. Here is what we’re running:</p>
-<pre><%= versions %></pre>
-<p>And here are some users from localhost:</p>
+<p>Welcome. We’re running Node version <%= versions.node %>.</p>
+<button id='getJSON'>Get JSON</button>
+<hr>
 <div id="results"></div>
-<script>
-  jQuery(function() {
-    $.getJSON('http://localhost:3000/api/v3/users?callback=?', function(data) {
-      $('#results').html('<ul>' +
-          data.map(function(item) {
-            return '<li>' + item.user.user_id + '</li>';
-          }).join('') + '</ul>');
-    });
-  });
-</script>
+<script src="/javascript/getJSON.js"></script>
