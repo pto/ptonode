@@ -1,12 +1,15 @@
 <h1><%= title %></h1>
 <p>Welcome. Here is what we’re running:</p>
 <pre><%= versions %></pre>
+<p>And here are some users from localhost:</p>
 <div id="results"></div>
 <script>
   jQuery(function() {
-    $(window).keypress(function(event) {
-      $('#results').append('which = ' + event.which + 
-          ', keyLocation = ' + event.originalEvent.keyLocation + '<br>');
+    $.getJSON('http://localhost:3000/api/v3/users?callback=?', function(data) {
+      $('#results').html('<ul>' +
+          data.map(function(item) {
+            return '<li>' + item.user.user_id + '</li>';
+          }).join('') + '</ul>');
     });
   });
 </script>
