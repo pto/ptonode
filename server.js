@@ -32,8 +32,9 @@ app.configure('production', function(){
 app.get('/', function(req, res){
   res.render('index', {
     title: 'Node Demo',
-    versions: process.versions,
-    environment: app.settings.env
+    node_version: process.versions.node,
+    environment: app.settings.env,
+    express_version: express.version
   });
 });
 
