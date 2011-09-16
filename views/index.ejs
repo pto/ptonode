@@ -1,20 +1,18 @@
 <h1><%= title %></h1>
-<p>
+<p id="intro">
   Welcome. We’re running <a href="http://nodejs.org">Node</a> 
   version <%= node_version %> in
   <%= environment %> mode, with <a href="http://expressjs.com/">Express</a>
   version <%= express_version %>.
 </p>
-<button id='getJSON'>Get JSON</button>
-<button id='inspect'>Inspect</button>
-<hr>
-<div id="results"></div>
-<script src="/javascript/getJSON.js"></script>
 <script>
-  $('#inspect').click(function() {
-    $('#results').append('<pre>' +
-        inspect({ first:1, second:'hi', third: new Date(), fourth: /hi/,
-        colorized: true, nothing: null, notThere: undefined,
-        long: 'This is a long value' }) + '</pre>');
+  $(function() {
+    if (localStorage.lastVisit) {
+      var lastVisit = new Date(Date.parse(localStorage.lastVisit));
+      $('#intro').append('You last visited this site on ' + inspect(lastVisit));
+    } else {
+      $('#intro').append('This appears to be your first visit to this page.');
+    }
+    localStorage.lastVisit = (new Date()).toUTCString();  
   });
 </script>
