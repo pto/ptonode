@@ -26,7 +26,7 @@ $(function() {
     localStorage.lastModified = Date.now();
     if (idletimer) clearTimeout(idletimer);
     idletimer = setTimeout(save, 5000);
-    savebutton.disabled = false;
+    saveButton.disabled = false;
   });
   status('Starting first sync from onload function');
   sync();
@@ -91,7 +91,7 @@ function sync() {
                             'version and overwrite the server.');
         var now = Date.now();
         if (useIt) {
-          editor.value = localStorage.note = xhr.responseText;
+          editor.value = localStorage.note = jqXHR.responseText;
           localStorage.lastSaved = now;
           status('Using server version of the note');
         } else {
