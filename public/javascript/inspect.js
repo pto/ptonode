@@ -270,5 +270,3 @@ var inspect = function(obj, showHidden, depth, colors) {
   }
   return format(obj, (typeof depth === 'undefined' ? 2 : depth));
 };
-
-
