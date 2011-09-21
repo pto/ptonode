@@ -1,6 +1,6 @@
 var editor, statusline, savebutton, idletimer;
 
-window.onload = function() {
+$(function() {
   status('Starting onload function');
   if (localStorage.note === undefined) {
     status('Nothing in localStorage');
@@ -22,7 +22,6 @@ window.onload = function() {
   editor.value = localStorage.note;
   editor.disabled = true;
   editor.addEventListener('input', function() {
-    status('Saving note to localStorage: ' + inspect(editor.value));
     localStorage.note = editor.value;
     localStorage.lastModified = Date.now();
     if (idletimer) clearTimeout(idletimer);
@@ -31,7 +30,7 @@ window.onload = function() {
   });
   status('Starting first sync from onload function');
   sync();
-};
+});
 
 window.onbeforeunload = function() {
   if (localStorage.lastModified > localStorage.lastSaved) save();
@@ -78,19 +77,10 @@ function save() {
 function sync() {
   if (navigator.onLine) {
     status('Syncing');
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/note');
-    xhr.send();
-    xhr.onload = function() {
-      status('XMLHttpRequest onload function starting');
-      var remoteModTime = 0;
-      if (xhr.status === 200) {
-        status('Successfully got note from server');
-        remoteModTime = xhr.getResponseHeader('Last-Modified');
-        remoteModTime = new Date(remoteModTime).getTime();
-      } else {
-        status('Failed to get note from server: status ' + xhr.status);
-      }
+    $.get('/note', function(data, textStatus, jqXHR) {
+      status('Get of note status: ' + textStatus);
+      remoteModTime = jqXHR.getResponseHeader('Last-Modified');
+      remoteModTime = new Date(remoteModTime).getTime();
       status('Server Last Modified: ' + inspect(remoteModTime));
       status('Local Last Modified: ' + inspect(localStorage.lastModified));
       if (remoteModTime > localStorage.lastModified) {
@@ -116,7 +106,7 @@ function sync() {
       }
       editor.disabled = false;
       editor.focus();
-    };
+    });
   } else {
     status('Cannot sync while offline');
     editor.disabled = false;
