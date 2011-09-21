@@ -51,7 +51,6 @@ app.get('/note', function(req, res) {
 app.post('/note', function(req, res) {
   noteContents = req.body.note;
   noteLastModified = new Date().getTime();
-  console.log('noteLastModified is now ' + noteLastModified);
   res.send(200);
 });
 
