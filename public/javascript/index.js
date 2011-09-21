@@ -77,7 +77,8 @@ function save() {
 function sync() {
   if (navigator.onLine) {
     status('Syncing');
-    $.get('/note', function(data, textStatus, jqXHR) {
+    $.ajax({url: '/note', cache: false,
+          success: function(data, textStatus, jqXHR) {
       status('Get of note status: ' + textStatus);
       remoteModTime = jqXHR.getResponseHeader('Last-Modified');
       remoteModTime = new Date(remoteModTime).getTime();
@@ -106,7 +107,7 @@ function sync() {
       }
       editor.disabled = false;
       editor.focus();
-    });
+    }});
   } else {
     status('Cannot sync while offline');
     editor.disabled = false;
