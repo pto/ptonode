@@ -11,6 +11,7 @@ var app = module.exports = express.createServer();
 // Data
 
 var noteContents = "This is the default note.";
+var noteLastModified = 1000;
 
 // Configuration
 
@@ -43,7 +44,13 @@ app.get('/', function(req, res){
 });
 
 app.get('/note', function(req, res) {
-  res.send(noteContents);
+  res.send(noteContents,
+      {'Last-Modified': new Date(noteLastModified).toUTCString()}, 200);
+});
+
+app.put('/note', function(req, res) {
+  noteContents = req.body;
+  noteLastModified = new Date().getTime();
 });
 
 app.listen(process.env.PORT || process.env.C9_PORT || 3000);
