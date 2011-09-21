@@ -8,6 +8,10 @@ var util = require('util');
 
 var app = module.exports = express.createServer();
 
+// Data
+
+var noteContents = "This is the default note.";
+
 // Configuration
 
 app.configure(function(){
@@ -36,6 +40,10 @@ app.get('/', function(req, res){
     environment: app.settings.env,
     express_version: express.version
   });
+});
+
+app.get('/note', function(req, res) {
+  res.send(noteContents);
 });
 
 app.listen(process.env.PORT || process.env.C9_PORT || 3000);
