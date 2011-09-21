@@ -65,15 +65,11 @@ function save() {
 
   if (navigator.onLine) {
     status('Saving while online');
-    var xhr = new XMLHttpRequest();
-    xhr.open('PUT', '/note');
-    xhr.setRequestHeader('Content-Type', 'text/plain');
-    xhr.send(editor.value);
-    xhr.onload = function() {
+    $.post('/note', {'note': editor.value}, function() {
       localStorage.lastSaved = Date.now();
       saveButton.disabled = true;
-      status('Save completed');
-    };
+      status('Save completed successfully');
+    });
   } else {
     status('Not online: cannot save on server');
   }

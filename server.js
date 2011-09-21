@@ -48,9 +48,10 @@ app.get('/note', function(req, res) {
       {'Last-Modified': new Date(noteLastModified).toUTCString()}, 200);
 });
 
-app.put('/note', function(req, res) {
-  noteContents = req.body;
+app.post('/note', function(req, res) {
+  noteContents = req.body.note;
   noteLastModified = new Date().getTime();
+  res.send(200);
 });
 
 app.listen(process.env.PORT || process.env.C9_PORT || 3000);
