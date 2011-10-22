@@ -1,0 +1,16 @@
+@font-face {
+  font-family: CMUSerif;
+  src: url(/fonts/cmunrm.otf);
+}
+
+@font-face {
+  font-family: CMUSerif;
+  font-style: italic;
+  src: url(/fonts/cmunti.otf);
+}
+
+@font-face {
+  font-family: CMUSansSerif;
+  font-weight: bold;
+  src: url(/fonts/cmunsx.otf);
+}
