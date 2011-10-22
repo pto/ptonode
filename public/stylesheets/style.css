@@ -1,3 +1,9 @@
+@font-face {
+  font-family: CMUSerif;
+  src: url(/fonts/cmunrm.otf);
+}  
+
 body {
   margin: 2em;
+  font-family: CMUSerif;
 }
