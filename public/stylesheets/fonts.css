@@ -24,6 +24,11 @@
 
 @font-face {
   font-family: CMUSansSerif;
+  src: url(/fonts/cmunss.otf);
+}
+
+@font-face {
+  font-family: CMUSansSerif;
   font-weight: bold;
   src: url(/fonts/cmunsx.otf);
 }
