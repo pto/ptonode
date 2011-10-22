@@ -9,7 +9,18 @@
   src: url(/fonts/cmunti.otf);
 }
 
+@font-face {
+  font-family: CMUSansSerif;
+  font-weight: bold;
+  src: url(/fonts/cmunsx.otf);
+}
+
 body {
   margin: 2em;
   font-family: CMUSerif;
+}
+
+h1 {
+  font-family: CMUSansSerif;
+  font-weight: bold;
 }
