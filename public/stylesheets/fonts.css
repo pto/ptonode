@@ -10,6 +10,19 @@
 }
 
 @font-face {
+  font-family: CMUSerif;
+  font-weight: bold;
+  src: url(/fonts/cmunbx.otf);
+}
+
+@font-face {
+  font-family: CMUSerif;
+  font-weight: bold;
+  font-style: italic;
+  src: url(/fonts/cmunbi.otf);
+}
+
+@font-face {
   font-family: CMUSansSerif;
   font-weight: bold;
   src: url(/fonts/cmunsx.otf);
