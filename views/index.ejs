@@ -1,16 +1,7 @@
 <h1><%= title %></h1>
 <p id="intro">
-  Welcome. We’re running <a href="http://nodejs.org">Node</a> 
+  <i>Welcome!</i> We’re running <a href="http://nodejs.org">Node</a> 
   version <%= node_version %> in
   <%= environment %> mode, with <a href="http://expressjs.com/">Express</a>
   version <%= express_version %>.
 </p>
-<div id="toolbar">
-  <button id="saveButton" onclick="save()">Save</button>
-  <button onclick="sync()">Sync Note</button>
-  <button onclick="applicationCache.update()">Update Application</button>
-</div>
-<textarea id="editor" style="margin-top: 1em; width: 100%; height: 10em">
-</textarea>
-<div id="statusLine" style="font-size: smaller"></div>
-<script src="/javascript/index.js"></script>

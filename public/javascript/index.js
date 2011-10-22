@@ -26,7 +26,7 @@ $(function() {
     localStorage.lastModified = Date.now();
     if (idletimer) clearTimeout(idletimer);
     idletimer = setTimeout(save, 5000);
-    saveButton.disabled = false;
+    savebutton.disabled = false;
   });
   status('Starting first sync from onload function');
   sync();
@@ -77,8 +77,7 @@ function save() {
 function sync() {
   if (navigator.onLine) {
     status('Syncing');
-    $.ajax({url: '/note', cache: false,
-          success: function(data, textStatus, jqXHR) {
+    $.get('/note', function(data, textStatus, jqXHR) {
       status('Get of note status: ' + textStatus);
       remoteModTime = jqXHR.getResponseHeader('Last-Modified');
       remoteModTime = new Date(remoteModTime).getTime();
@@ -92,7 +91,7 @@ function sync() {
                             'version and overwrite the server.');
         var now = Date.now();
         if (useIt) {
-          editor.value = localStorage.note = jqXHR.responseText;
+          editor.value = localStorage.note = xhr.responseText;
           localStorage.lastSaved = now;
           status('Using server version of the note');
         } else {
@@ -107,7 +106,7 @@ function sync() {
       }
       editor.disabled = false;
       editor.focus();
-    }});
+    });
   } else {
     status('Cannot sync while offline');
     editor.disabled = false;

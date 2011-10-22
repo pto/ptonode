@@ -1,21 +1,9 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Demo Poage</title>
+  </head>
 	<body>
-		This is a red square:
-		<canvas id="square" width=10 height=10></canvas>.
-		This is a blue circle:
-		<canvas id="circle" width=10 height=10></canvas>.
-		<script>
-			var canvas = document.getElementById("square");
-			var context = canvas.getContext("2d");
-			context.fillStyle = "#f00";
-			context.fillRect(0,0,10,10);
-			canvas = document.getElementById("circle");
-			context = canvas.getContext("2d");
-			context.beginPath();
-			context.arc(5, 5, 5, 0, 2*Math.PI, true);
-			context.fillStyle = "#00f";
-			context.fill();
-		</script>
+    <h1>Demo Page</h1>
 	</body>
 </html>
