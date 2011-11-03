@@ -1,16 +1,26 @@
-@import url('fonts.css');
+@font-face {
+  font-family: CMUSerif;
+  src: url(/fonts/cmunrm.otf);
+}
+
+@font-face {
+  font-family: CMUSerif;
+  font-style: italic;
+  src: url(/fonts/cmunti.otf);
+}
+
+@font-face {
+  font-family: CMUSansSerif;
+  font-weight: bold;
+  src: url(/fonts/cmunsx.otf);
+}
 
 body {
   margin: 2em;
   font-family: CMUSerif;
-  font-size: larger;
 }
 
 h1 {
   font-family: CMUSansSerif;
   font-weight: bold;
-}
-
-.sansSerif {
-  font-family: CMUSansSerif;
 }
