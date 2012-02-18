@@ -1,10 +1,8 @@
-
-/**
- * Module dependencies.
- */
+//
+// Simple Node website
+//
 
 var express = require('express');
-var util = require('util');
 
 var app = module.exports = express.createServer();
 
