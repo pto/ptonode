@@ -3,12 +3,18 @@
 //
 
 var express = require('express');
+var util = require('util');
 
-var app = module.exports = express.createServer();
+var app = express();
 
 // Configuration
 
 app.configure(function(){
+  app.use(function(req, res, next) {
+    console.log('%s %s %s %s %s %s', new Date().toString(), req.method,
+        req.headers.host, req.url, req.ip, req.headers['user-agent']);
+    next();
+  });
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
   app.use(express.bodyParser());
@@ -36,5 +42,6 @@ app.get('/', function(req, res){
   });
 });
 
-app.listen(process.env.PORT || process.env.C9_PORT || 3000);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+var port = process.env.PORT || process.env.C9_PORT || 3000;
+app.listen(port);
+console.log("Express server listening on port %d in %s mode", port, app.settings.env);
