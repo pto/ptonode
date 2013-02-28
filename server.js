@@ -2,7 +2,7 @@
 // Simple Node website
 //
 // Start up like this:
-// 	 sudo PORT=80 node server.js >>server.log 2>&1 &
+// 	 sudo PORT=80 NODE_ENV=production node server.js >>server.log 2>&1 &
 //
 
 var express = require('express');
