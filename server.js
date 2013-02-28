@@ -1,6 +1,9 @@
 //
 // Simple Node website
 //
+// Start up like this:
+// 	 sudo PORT=80 node server.js >>server.log 2>&1 &
+//
 
 var express = require('express');
 var util = require('util');
